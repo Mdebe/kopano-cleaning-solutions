@@ -1,5 +1,5 @@
 {
-  "name": "kopano-cleaning",
+  "name": "The-Helping-Hands",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,12 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
-    
   },
   "dependencies": {
     "next": "16.1.4",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-native": "^0.83.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

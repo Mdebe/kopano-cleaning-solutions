@@ -14,18 +14,18 @@ export default function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const services = [
-    "Residential Cleaning",
-    "Office & Commercial",
-    "Deep Cleaning",
-    "Move-In / Move-Out",
+    "Residential Cleaning South Africa",
+    "Office & Commercial Cleaning",
+    "Deep Cleaning Services",
+    "Move-In / Move-Out Cleaning",
     "Post-Construction Cleaning",
     "Carpet & Upholstery Cleaning",
+    "Maintenance & Repairs South Africa",
+    "Specialised Cleaning Solutions",
   ];
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -35,17 +35,20 @@ export default function QuoteForm() {
 
     setSubmitted(true);
 
-    const waMessage = `Hello, I would like a quote.
+    const waMessage = `Hello The Helping Hands 👋
+
+I would like to request a quote.
 
 Service: ${form.service}
-Name: ${form.name}
+Full Name: ${form.name}
 Phone: ${form.phone}
 Email: ${form.email}
-Message: ${form.message}`;
+Additional Details: ${form.message}
 
-    const waUrl = `https://wa.me/27726248177?text=${encodeURIComponent(
-      waMessage
-    )}`;
+Location: Limpopo / South Africa`;
+
+    const waUrl = `https://wa.me/27682221989?text=${encodeURIComponent(waMessage)}`;
+
     window.open(waUrl, "_blank");
 
     setForm({
@@ -61,97 +64,94 @@ Message: ${form.message}`;
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-20 bg-gray-100">
+
       <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-2 items-start">
-        {/* CONTACT INFO */}
+
+        {/* CONTACT INFO + SEO */}
         <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-10">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#1bb6ba]">
-            Contact Us
+
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#004295]">
+            Cleaning Services in Limpopo & South Africa
           </h2>
+
           <p className="text-black mb-6 text-sm sm:text-base">
-            Kopano Cleaning Solutions provides professional, reliable, and
-            affordable cleaning services for homes and businesses.
+            The Helping Hands is a professional cleaning and property maintenance company
+            offering residential cleaning, commercial cleaning, deep cleaning,
+            and renovation services across South Africa including Limpopo, Mpumalanga,
+            and KwaZulu-Natal.
           </p>
 
           <div className="space-y-4 text-black text-sm sm:text-base">
-            <p>
-              <strong>📍 Location & Address:</strong> <br />
-              Johannesburg & Surrounding Areas, South Africa <br />
-              123 Main Street, Witbank, Mpumalanga, 1035
-            </p>
-
-          <div className="flex items-center gap-4">
-  <p className="text-black font-semibold">📞 Phone:</p>
-  <span className="text-black">+27 72 624 8177</span>
-  <a
-    href="tel:+27726248177"
-    className="ml-2 px-3 py-1 bg-[#1bb6ba] text-white rounded-lg hover:bg-[#17a0a5] transition text-sm font-medium"
-  >
-    Call Now
-  </a>
-</div>
-
 
             <p>
-              <strong>📧 Email:</strong> <br />
-              <a
-                href="mailto:info@kopanocleaning.co.za"
-                className="text-[#1bb6ba] hover:underline"
-              >
-                info@kopanocleaning.co.za
-              </a>
+              <strong>📍 Head Office Location (Limpopo):</strong><br />
+              -102 President Street, Louis Trichardt, Limpopo, South Africa<br />
+              Sunnydale, Eshowe<br />
+              Sangoyana Reserve, Empangeni
             </p>
 
-            <p>
-              <strong>🕒 Business Hours:</strong> <br />
-              Mon – Sat: 8:00 AM – 6:00 PM
-            </p>
-          </div>
+            <div className="flex items-center gap-4">
+              <p className="font-semibold">📞 Phone:</p>
+              <span>+27 68 222 1989</span>
 
-          <div className="mt-6 sm:mt-8">
-            <h4 className="font-semibold text-black mb-3 text-sm sm:text-base">
-              Follow Us
-            </h4>
-            <div className="flex gap-4">
               <a
-                href="#"
-                className="text-[#1bb6ba] hover:underline text-sm sm:text-base"
+                href="tel:+27682221989"
+                className="ml-2 px-3 py-1 bg-[#004295] text-white rounded-lg hover:bg-[#00306e] transition text-sm font-medium"
               >
-                Facebook
-              </a>
-              <a
-                href="#"
-                className="text-[#1bb6ba] hover:underline text-sm sm:text-base"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://wa.me/27726248177"
-                target="_blank"
-                className="text-[#1bb6ba] hover:underline text-sm sm:text-base"
-              >
-                WhatsApp
+                Call Now
               </a>
             </div>
+
+            <p>
+              <strong>📧 Email:</strong><br />
+              <a
+                href="mailto:info@thehelpinghands.co.za"
+                className="text-[#004295] hover:underline"
+              >
+                info@thehelpinghands.co.za
+              </a>
+            </p>
+
+            <p>
+              <strong>🕒 Business Hours:</strong><br />
+              Monday – Saturday: 08:00 AM – 18:00 PM
+            </p>
           </div>
+
+          {/* GOOGLE MAPS */}
+          <div className="mt-6 rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+              src="https://www.google.com/maps?q=Louis%20Trichardt%20Limpopo%20South%20Africa&output=embed"
+              width="100%"
+              height="250"
+              loading="lazy"
+              className="border-0"
+            />
+          </div>
+
         </div>
 
         {/* QUOTE FORM */}
         <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#1bb6ba]">
-            Get a Free Quote
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#004295]">
+            Request Cleaning Quote South Africa
           </h2>
+
           <p className="text-center text-black mb-6 text-sm sm:text-base">
-            Complete the form and we’ll respond quickly with a custom quote.
+            Get a fast quote for cleaning services in Limpopo, Mpumalanga, and across South Africa.
           </p>
 
           {submitted && (
-            <div className="mb-6 text-center text-green-600 font-semibold animate-fadeIn">
+            <div className="mb-6 text-center text-green-600 font-semibold">
               Quote request sent successfully! ✅
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+
               <input
                 type="text"
                 name="name"
@@ -159,8 +159,9 @@ Message: ${form.message}`;
                 onChange={handleChange}
                 placeholder="Full Name"
                 required
-                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#1bb6ba]"
+                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#004295]"
               />
+
               <input
                 type="email"
                 name="email"
@@ -168,11 +169,12 @@ Message: ${form.message}`;
                 onChange={handleChange}
                 placeholder="Email Address"
                 required
-                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#1bb6ba]"
+                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#004295]"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+
               <input
                 type="text"
                 name="phone"
@@ -180,7 +182,7 @@ Message: ${form.message}`;
                 onChange={handleChange}
                 placeholder="Phone Number"
                 required
-                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#1bb6ba]"
+                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#004295]"
               />
 
               <select
@@ -188,11 +190,12 @@ Message: ${form.message}`;
                 value={form.service}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#1bb6ba]"
+                className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#004295]"
               >
                 <option value="" disabled>
                   Select Service
                 </option>
+
                 {services.map((service) => (
                   <option key={service} value={service}>
                     {service}
@@ -205,19 +208,20 @@ Message: ${form.message}`;
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Additional details (optional)"
+              placeholder="Describe your cleaning or maintenance request"
               rows={4}
-              className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#1bb6ba]"
+              className="w-full px-4 py-3 border rounded-lg text-black focus:ring-2 focus:ring-[#004295]"
             />
 
             <button
               type="submit"
-              className="w-full bg-[#1bb6ba] hover:bg-[#17a0a5] text-white font-bold py-4 rounded-2xl transition shadow-lg text-sm sm:text-base"
+              className="w-full bg-[#004295] hover:bg-[#00306e] text-white font-bold py-4 rounded-2xl transition shadow-lg"
             >
-              Request Quote via WhatsApp
+              Send Quote via WhatsApp
             </button>
           </form>
         </div>
+
       </div>
     </section>
   );

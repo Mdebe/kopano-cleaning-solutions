@@ -1,35 +1,35 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+
+const BRAND_COLOR = "#004295";
 
 const slides = [
   {
-    image: "/images/hero-cleaning.jpeg",
-    title: "Professional Residential Cleaning",
-    description: "We make your home spotless and sparkling clean.",
+    image: "/images/thh.jpg",
+    title: "Residential & Commercial Cleaning",
+    description: "Reliable, high-quality cleaning for homes and businesses.",
   },
   {
-    image: "/images/office.jpeg",
-    title: "Office & Commercial Cleaning",
-    description: "Reliable services for businesses of all sizes.",
+    image: "/images/hero2.jpg",
+    title: "Property Maintenance Services",
+    description: "Complete repairs and ongoing property care solutions.",
   },
   {
-    image: "/images/deep-clean.jpeg",
-    title: "Deep Cleaning Experts",
-    description: "Thorough cleaning for every corner of your space.",
+    image: "/images/hero.jpg",
+    title: "Deep Cleaning Specialists",
+    description: "Thorough cleaning for a healthier, fresher environment.",
   },
   {
-    image: "/images/residential.jpeg",
-    title: "Move-In / Move-Out Cleaning",
-    description: "Smooth transition with a perfectly clean space.",
+    image: "/images/hero1.jpg",
+    title: "Renovation & Home Improvements",
+    description: "Painting, tiling, and property upgrades done professionally.",
   },
 ];
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -38,53 +38,81 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section className="relative h-[80vh] w-full overflow-hidden">
+    <section className="relative h-[85vh] w-full overflow-hidden">
+
       {/* Slides */}
       {slides.map((slide, idx) => (
         <div
           key={idx}
-          className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
-          style={{ backgroundImage: `url(${slide.image})` }}
+          style={{
+            backgroundImage: `url(${slide.image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-6">
-            <h1 className="text-5xl font-bold mb-4 text-white animate-fadeInDown">
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6">
+
+            {/* Brand Badge */}
+            <span
+              className="px-4 py-1 rounded-full text-sm text-white mb-4"
+              style={{ backgroundColor: BRAND_COLOR }}
+            >
+              The Helping Hands
+            </span>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white leading-tight">
               {slide.title}
             </h1>
-            <p className="text-lg text-white mb-6 animate-fadeInUp">
+
+            {/* Description */}
+            <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
               {slide.description}
             </p>
-            <div className="flex gap-4 animate-fadeInUp">
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col md:flex-row gap-4">
+
               <a
                 href="https://wa.me/27726248177"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-green-600 transition"
+                className="px-6 py-3 rounded-xl text-white font-semibold hover:opacity-90 transition shadow-lg"
+                style={{ backgroundColor: "#25D366" }}
               >
-                WhatsApp Us
+                Chat on WhatsApp
               </a>
+
               <a
                 href="/contact"
-                className="bg-white text-[#1bb6ba] px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition"
+                className="px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition"
+                style={{
+                  backgroundColor: BRAND_COLOR,
+                  color: "white",
+                }}
               >
-                Get a Quote
+                Request a Quote
               </a>
+
             </div>
           </div>
         </div>
       ))}
 
-      {/* Slide Indicators */}
+      {/* Indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-4 h-4 rounded-full ${
-              current === idx ? "bg-white" : "bg-gray-400"
-            } transition`}
-          ></button>
+            className={`w-3 h-3 rounded-full transition ${
+              current === idx ? "bg-white scale-110" : "bg-gray-400"
+            }`}
+          />
         ))}
       </div>
     </section>
